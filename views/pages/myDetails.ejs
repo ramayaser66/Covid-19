@@ -10,7 +10,7 @@
 
     <div class="parent">
 
-        <%data.forEach(element =>{%>
+       
 
             <div class="subparent">
                 <h2><%= element.country%></h2>
@@ -20,16 +20,12 @@
                 <p> <%= element.date%></p>
             </div>
 
-            <form action="/myRecords" method="POST">
-                <input type="hidden" name="country" value="<%= element.country%>">
-                <input type="hidden" name="totalconfirmed" value="<%= element.totalconfirmed%>">
-                <input type="hidden" name="totaldeaths" value="<%= element.totaldeaths%>">
-                <input type="hidden" name="totalrecovered" value="<%= element.totalrecovered%>">
-                <input type="hidden" name="date" value="<%= element.date%>">
-                <input type="submit" value="Add To My Records">
+            <form action="/myRecords/<%= element.id%>?_method=DELETE" method="POST">
+               
+                <input type="submit" value="DELETE">
             </form>
 
-       <%});%>
+
 
     </div>
     

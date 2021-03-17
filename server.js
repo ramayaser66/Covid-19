@@ -38,6 +38,9 @@ app.get('/allCountries', handelAllCountries);
 app.post('/myRecords', addRecordsToDB); 
 app.get('/myRecords', getRecordsFromDB); 
 app.get('/myRecords/:id', handelDetails);
+app.delete('/myRecords/:id', handelDeleteDetails);
+
+
 
 
 // handlers
@@ -145,6 +148,18 @@ function handelDetails(req, res){
     let value = [id];
     client.query(sql, value).then(data =>{
         res.render('pages/myDetails', {data : data}); 
+
+    }).catch(error =>{
+        console.log('an error occurred getting data from DB2'+ error);
+    });
+}
+
+function handelDeleteDetails(req, res){
+    let id = req.params.id; 
+    let sql = 'DELETE  FROM country WHERE id=$1;';
+    let value = [id];
+    client.query(sql, value).then(data =>{
+        res.render('pages/myRecords'); 
 
     }).catch(error =>{
         console.log('an error occurred getting data from DB2'+ error);

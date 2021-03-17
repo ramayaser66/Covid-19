@@ -1,0 +1,10 @@
+
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subparent{
+    border: 2px solid black;
+}
