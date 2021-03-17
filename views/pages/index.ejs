@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+
+   <nav>
+
+   </nav>
+
+   <h1> World total statistics</h1>
+
+   <div class="parent">
+       <div class="sub-parent">
+        TotalConfirmed: <%= data.TotalConfirmed%>
+
+       </div>
+
+       <div class="sub-parent">
+        TotalDeaths: <%= data.TotalDeaths%>
+
+       </div>
+
+       <div class="sub-parent">
+        TotalRecovered: <%= data.TotalRecovered%>
+
+       </div>
+
+
+   </div>
+
+   <h2> get statistics for a specific country</h2>
+
+   <div class="form">
+
+    <form action="/getCountryResult" method="GET">
+        <input type="text" name="country" value="" placeholder="Add country name">
+        <input type="date" name="from" value="">
+        <input type="date" name="to" value="" >
+        <input type="submit" value="Search">
+    </form>
+
+   </div>
+    
+</body>
+</html>

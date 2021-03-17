@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="parent">
+
+        <%data.forEach(element =>{%>
+
+            <div class="subparent">
+                <h2><%= element.country%></h2>
+                <p> <%= element.totalconfirmed%></p>
+                <p> <%= element.totaldeaths%></p>
+                <p> <%= element.totalrecovered%></p>
+                <p> <%= element.date%></p>
+            </div>
+
+            <form action="/myRecords" method="POST">
+                <input type="hidden" name="country" value="<%= element.country%>">
+                <input type="hidden" name="totalconfirmed" value="<%= element.totalconfirmed%>">
+                <input type="hidden" name="totaldeaths" value="<%= element.totaldeaths%>">
+                <input type="hidden" name="totalrecovered" value="<%= element.totalrecovered%>">
+                <input type="hidden" name="date" value="<%= element.date%>">
+                <input type="submit" value="Add To My Records">
+            </form>
+
+       <%});%>
+
+    </div>
+    
+</body>
+</html>
